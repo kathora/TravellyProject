@@ -57,6 +57,7 @@ button{
     font-size: 1.8rem;
     cursor: pointer;
     border-radius: 50px;
+    transition: background 0.5s ease-in-out;
 }
 
 button:hover{
@@ -119,6 +120,7 @@ nav ul {
     background-position: center;
     display: flex;
     position: relative;
+    overflow: hidden;
 }
 
 .locations-head{
@@ -139,18 +141,28 @@ nav ul {
     position: absolute;
     top: 0;
     right: 0;
+    pointer-events: none;
 }
 
 .moving-cloud-1{
-
+    animation: cloudAnimation 3s infinite alternate ease-in-out ;
 }
 
 .moving-cloud-2{
     top: 20%;
     z-index: -1;
     opacity: 0.5%;
+   
 }
 
+@keyframes cloudAnimation{
+    from {
+        transform: translate(10%, -10%);
+    }
+    to {
+        transform: translate(0%, 0%);
+    }
+}
 
 
 /*Media Query*/
@@ -165,5 +177,19 @@ nav ul {
 
     #logo{
         padding: 2rem;
+    }
+
+    .cloud{
+        height: 40rem;
+    }
+    .moving-cloud-1{
+        z-index: -1;
+    }
+    .moving-cloud-2{
+        z-index: -2;
+    }
+    .locations-head h3{
+        background: rgba(19, 28, 39, 0.9);
+        -webkit-text-fill-color: white;
     }
 }
